@@ -28,11 +28,16 @@
 <body>
     <div class="b c is-loaded" id="el" style=" --smooth-corners:3; "></div>
     <button id="btn1"></button>
+    <div id="sd"></div>
+    <div class="css"></div>
 </body>
 
 </html>
 <script>
     // console.clear();
+    console.log('id',sd);
+    console.log('css',css);
+    
 
 //需要服务模式加载模块
 (CSS.paintWorklet || paintWorklet).addModule('./smooth-corners.js')
