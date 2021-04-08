@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .box {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid red;
+            background-color: gold;
+        }
+
+        .b1 {
+            display: flex;
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+
+        .c1 {
+            margin: auto;
+        }
+
+        .b2 {
+            width: 800px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .c2 {
+            /* display: block; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- flex -->
+    <!-- 1,水平 垂直方向居中 -->
+    <!-- 2,居中元素margin auto居中 -->
+    <div class="box b1">
+        <span class="inn c1">flex居中</span>
+    </div>
+
+    <!-- tableCell -->
+    <div class="box b2">
+        <span class="inn c2">tableCell</span>
+    </div>
+
+    <!-- Grid -->
+    <div class="box b3">
+        <span class="inn c3">Grid居中</span>
+    </div>
+
+</body>
+
+</html>
+<script>
+    /**
+    * flex: 不伸缩元素尺寸
+    1,水平 垂直方向居中
+    2, 居中元素 margin auto居中
+    *
+    *
+    * table 居中元素为 inline或者inline-block
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    *
+    * Grid 
+
+
+    */
+</script>
