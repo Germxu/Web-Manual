@@ -1,10 +1,9 @@
 ---
-name: Bug提交
-about: 出现的Bug
+name: 自定义提交
+about: 一句话描述不清楚
 title: ''
-labels: question
 assignees: Germxu
 
 ---
 
-### 描述你遇到的Bug：
+### 描述你遇到的：
