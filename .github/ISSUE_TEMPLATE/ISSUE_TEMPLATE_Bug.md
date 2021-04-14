@@ -1,6 +1,3 @@
-
-
-
 ---
 name: Bug提交
 about: 出现的Bug

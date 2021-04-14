@@ -1,12 +1,10 @@
-
-
-
 ---
-name: Bug提交
-about: 出现的Bug
+name: 问题反馈
+about: 遇到了问题或有意见？
 title: ''
+# labels: help wanted
 assignees: Germxu
 
 ---
 
-### 描述你遇到的Bug：
+### 描述你遇到的问题：
