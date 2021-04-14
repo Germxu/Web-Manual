@@ -2,7 +2,7 @@
 name: 新大陆
 about: 发现新大陆
 title: ''
-<!-- labels: help wanted -->
+labels: UED
 assignees: Germxu
 
 ---
