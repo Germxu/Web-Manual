@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  
+    <head>
+        <meta charset="UTF-8">
+        <title>offsetWidth、clientWidth、width、scrollWidth区别及js与jQuery获取的方式</title>
+        <!-- <script type="text/javascript" src="../js/jquery.min.js"></script>
+         -->
+         <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+    </head>
+  
+    <body style="border:1px solid #ccc;height: 100%;">
+        <div id="div2" style="width:100px;height:80px;left:10px;top:8px;background-color:#00BCD4;position:relative;border:1px solid #ccc;margin:20px 10px;padding:7px 6px;">
+        </div>
+  
+    </body>
+  
+</html>
+  
+<script type="text/javascript">
+    /*
+     * jQuery.Resize by wuxinxi007
+     * Date: 2011-5-14
+     */
+    $(function() {
+        //绑定需要拖拽改变大小的元素对象
+        bindResize(document.getElementById('div2'));
+    });
+  
+    function bindResize(el) {
+        //初始化参数
+        var els = el.style,
+            //鼠标的 X 和 Y 轴坐标
+            x = y = 0;
+  
+        //邪恶的食指
+        $(el).mousedown(function(e) {
+  
+              
+            if(e.offsetX > el.offsetWidth / 2) {
+              
+            //按下元素后，计算当前鼠标与对象计算后的坐标
+            x = e.clientX - el.offsetWidth,
+            y = e.clientY - el.offsetHeight;
+  
+                //在支持 setCapture 做些东东
+                el.setCapture ? (
+                    //捕捉焦点
+                    el.setCapture(),
+                    //设置事件
+                    el.onmousemove = function(ev) {
+                        domResize(ev || event)
+                    },
+                    el.onmouseup = UnbindResize) : (
+                    //绑定事件
+                    $(document).bind("mousemove", domResize).bind("mouseup", UnbindResize)
+                )
+  
+            }else
+            {
+              
+              
+        //按下元素后，计算当前鼠标与对象计算后的坐标
+            x = el.offsetWidth,
+            y = el.offsetHeight;
+              
+                //在支持 setCapture 做些东东
+                el.setCapture ? (
+                    //捕捉焦点
+                    el.setCapture(),
+                    //设置事件
+                    el.onmousemove = function(ev) {
+                        domMove(ev || event)
+                    },
+                    el.onmouseup = UnbindMove) : (
+                    //绑定事件
+                    $(document).bind("mousemove", domMove).bind("mouseup", UnbindMove)
+                )
+              
+            }
+  
+            //防止默认事件发生
+            e.preventDefault()
+        });
+          
+          
+          
+        //调整事件
+        function domResize(e) {
+  
+            //宇宙超级无敌运算中...
+            els.width = e.clientX - x + 'px',
+            els.height = e.clientY - y + 'px'
+        }
+          
+          
+        //移动事件
+        function domMove(e) {
+  
+            els.left = e.pageX - x + 'px';
+            els.top  = e.pageY - y + 'px';
+        }
+          
+        //停止事件
+        function UnbindResize() {
+            //在支持 releaseCapture 做些东东
+            el.releaseCapture ? (
+                //释放焦点
+                el.releaseCapture(),
+                //移除事件
+                el.onmousemove = el.onmouseup = null
+            ) : (
+                //卸载事件
+                $(document).unbind("mousemove", domResize).unbind("mouseup", UnbindResize)
+            )
+        }
+          
+        //停止事件
+        function UnbindMove() {
+            //在支持 releaseCapture 做些东东
+            el.releaseCapture ? (
+                //释放焦点
+                el.releaseCapture(),
+                //移除事件
+                el.onmousemove = el.onmouseup = null
+            ) : (
+                //卸载事件
+                $(document).unbind("mousemove", domMove).unbind("mouseup", UnbindMove)
+            )
+        }
+    }
+</script>
