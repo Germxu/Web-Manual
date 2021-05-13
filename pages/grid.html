@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 网格布局</title>
+    <style>
+        /* header{} */
+        *{
+            margin: 0;
+        }
+        body{
+            display: grid;
+            height: 100vh;
+            grid-template-rows: auto 1fr auto;
+        }
+        header{
+            background-color: gold;
+            padding: 2em;
+        }
+        main{
+            background-color: pink;
+        }
+        footer{
+        background-color: cyan;
+        padding: 3em;
+        }
+    </style>
+</head>
+<body>
+    <header>头部</header>
+    <main>内容</main>
+    <footer>底部</footer>
+</body>
+</html>
