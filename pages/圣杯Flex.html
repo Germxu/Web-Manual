@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* align-content:flex-start ; */
+            /* height: 820px; */
+        }
+        header,footer{
+            height: 50px;
+            width: 100%;
+            background-color: gold;
+        }
+        .content{
+            /* flex: 1; */
+            height: 500px;
+            display: flex;
+            width: 100%;
+            background-color: skyblue;
+            flex-grow: 100px 1 200px;
+        }
+        main{
+            flex: 1;
+        }
+        .left,aside{
+            width: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="content">
+        <div class="left"></div>
+        <main></main>
+        <aside></aside>
+    </div>
+    <footer></footer>
+
+    
+</body>
+</html>

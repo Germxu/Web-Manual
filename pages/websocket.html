@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // const url = "wss://b-price.jin10.com/";
+    const url = "wss://wss-flash-1.jin10.com/";
+    let ws = new WebSocket(url);
+    ws.onopen = function (e) {
+        // console.log(e);
+        ws.send("发送数据");
+        console.log("数据发送中...");
+    }
+
+    ws.onmessage = function (e) {
+        console.log("数据接收...", e.data);
+        BlobData(e.data)
+    }
+
+    function BlobData(blobData) {
+
+        //判断是否为Blob格式的数据
+        if (blobData instanceof Blob) {
+
+            //通过FileReader读取数据
+            var reader = new FileReader();
+
+            //以下这两种方式我都可以解析出来，因为Blob对象的数据可以按文本或二进制的格式进行读取
+            reader.readAsArrayBuffer(blobData);
+            //reader.readAsText(blobData, 'utf8');
+
+            reader.onload = function () {
+                var receive_data = this.result;//这个就是解析出来的数据
+                var result = new Int16Array(this.result);
+
+                console.log('解析数据',result);
+            }
+        }
+        //blog.csdn.net/A_big_fish/article/details/114929376
+    }
+
+
+</script>
