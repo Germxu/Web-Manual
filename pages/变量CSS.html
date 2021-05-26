@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>变量CSS</title>
     <style>
-
+        :root{
+            --fz: 20px;
+            --color: gold;
+        }
+        h1{
+            font-size: var(--fz);
+        }
+        img{
+            border: 12px solid var(--color);
+        }
     </style>
 </head>
+
 <body>
     <h1>这是标题1</h1>
     <h2>这是标题2</h2>
@@ -16,4 +27,16 @@
         <img src="https://gw.alicdn.com/tfs/TB11J7yMzTpK1RjSZKPXXa3UpXa-880-228.png" alt="">
     </div>
 </body>
+
 </html>
+<script>
+    const textBox = document.querySelector('html'); 
+    //GET 
+    const Bxshc = getComputedStyle(textBox).getPropertyValue('--fz'); 
+    // SET 
+    setTimeout(() => {
+    textBox.style.setProperty('--fz', '50px');
+        
+    }, 1000);
+    console.log(Bxshc);
+</script>
