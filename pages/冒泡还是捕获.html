@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡还是捕获</title>
+    <style>
+        .in {
+            border: 20px solid gold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>表反跳痛染发斯蒂芬</h1>
+        <p>材料电饭煲水电费士大夫拉丝粉</p>
+        <div class="in" id="n">
+            <img id="img" src="https://gw.alicdn.com/tfs/TB11J7yMzTpK1RjSZKPXXa3UpXa-880-228.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.body.addEventListener("mousedown", e => {
+        
+        console.log("Body", e.target);
+        e.stopPropagation();
+    }, true);
+
+    n.addEventListener("mousedown", e => {
+        console.log("inBox", e);
+        e.stopPropagation();
+    }, true)
+    img.addEventListener("mousedown", e => {
+        e.stopPropagation();
+        console.log("img", e);
+    })
+
+
+</script>
