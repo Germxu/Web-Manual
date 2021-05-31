@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@babel/standalone@7.14.4/babel.min.js"></script>
+    <title>浏览器编译ES6+</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/babel">
+    let name = {
+        t: 3,
+        e: {
+            es: 23
+        }
+    }
+    let c = name?.e?.es && name.e.es || 222
+    console.log(name["t"]);
+    console.log(c);
+
+</script>
