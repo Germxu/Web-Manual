@@ -5,3 +5,7 @@
 // 当前元素值
 // 当前索引
 // 调用reduce的数组
+
+Array.prototype.reduce2 = function(fn,initValue){ //fn=callback
+    
+}
