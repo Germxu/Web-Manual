@@ -8,13 +8,17 @@ const math_it_up = {
     '÷': function (x, y) { return x / y }
 };
 
-const str = '3*5+6';
+const str = '3x5+6';
+let arr =[];
+for (let i = 0; i < str.length; i++) {
 
-for (const i in str) {
-
-    // console.log('iterator', i, str[i]);
-    if(i){
-        console.log(2,i);
+    // console.log('iterator', '+-x÷'.indexOf(str[i]), str[i]);
+    if('+-x÷'.indexOf(str[i])<0){
+        // console.log(str[i],Number(str[i]));
+        arr.push(Number(str[i]))
+    }else{
+        arr.push(str[i])
     }
-
 }
+let math = 
+console.log(arr);
