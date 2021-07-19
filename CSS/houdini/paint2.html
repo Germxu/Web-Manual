@@ -1,0 +1,20 @@
+<div class="foo"></div>
+<style>
+    .foo {
+        border: 1px solid skyblue;
+        width: 200px;
+        height: 200px;
+        padding: 0 30px;
+        /*指定背景色为红色*/
+        --color: red;
+        /* --font:"中文"; */
+        /*使用刚刚注册的paint方法*/
+        background-image: paint(circle);
+    }
+</style>
+<script>
+    if ("paintWorklet" in CSS) {
+        CSS.paintWorklet.addModule('paint.js');
+    }
+
+</script>
