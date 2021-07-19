@@ -6,6 +6,9 @@
 // 当前索引
 // 调用reduce的数组
 
+let arr= [2,3,4,5,6,7,8];
+
+
 Array.prototype.reduce2 = function(fn,initValue){ //fn=callback
     
 }
