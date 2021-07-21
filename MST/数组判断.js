@@ -29,3 +29,9 @@ if (!Array.isArray) {
       return Object.prototype.toString.call(arg) === '[object Array]';
     };
   }
+
+
+  function _isArray(arg){
+      Object.prototype.toString.call(arg)==='[object Array]'
+    }
+    Object.prototype.toString.call(arg)==="[object Function]"
