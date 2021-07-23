@@ -34,3 +34,5 @@ class MyPromise {
         this._value = err
     }
 }
+
+new MyPromise()
