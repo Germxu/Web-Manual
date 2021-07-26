@@ -1,0 +1,1 @@
+'a1b2c3d4e5'.search(/1/g)
