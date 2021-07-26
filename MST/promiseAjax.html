@@ -1,0 +1,60 @@
+<img id="img" src="">
+<script>
+
+    function h(resolve, reject) {
+        console.log("handler", url);
+        const handler = function () {
+            if (this.readyState !== 4) {
+                return;
+            }
+            if (this.status === 200) {
+                resolve(this.response);
+            } else {
+                reject(new Error(this.statusText));
+            }
+        }
+        const XHR = new XMLHttpRequest();
+        XHR.open("GET", url);
+        XHR.onreadystatechange = handler;
+        XHR.responseType = "json";
+        XHR.setRequestHeader("Accept", "application/json");
+        XHR.send();
+
+    }
+
+    function getJSON(url) {
+        // h(url, res => {
+        //     console.log('resolve', res);
+        // })
+        console.log('url', url);
+
+        return new Promise((resolve, reject) => {
+            console.log("handler", url);
+            const handler = function () {
+                if (this.readyState !== 4) {
+                    return;
+                }
+                if (this.status === 200) {
+                    resolve(this.response);
+                } else {
+                    reject(new Error(this.statusText));
+                }
+            }
+            const XHR = new XMLHttpRequest();
+            XHR.open("GET", url);
+            XHR.onreadystatechange = handler;
+            XHR.responseType = "json";
+            XHR.setRequestHeader("Accept", "application/json");
+            XHR.send();
+        })
+    }
+    getJSON("https://yesno.wtf/api").then(res => {
+        console.log("then resolve", res);
+        console.log(res.image);
+        document.querySelector("img").setAttribute("src", res.image)
+
+    }, error => { console.log('出错了', error); })
+
+
+
+</script>
