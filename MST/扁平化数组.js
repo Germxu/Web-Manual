@@ -12,7 +12,11 @@ let b=[];
 flat(a,b)
 
 
-let a=[1,2,3,[4,5,[6,7,[8,9]]]];
-a.toString().split(',').map(item=>{
+let a1=[1,2,3,[4,5,[6,7,[8,9]]]];
+a1.toString().split(',').map(item=>{
     return parseFloat(item);
 });
+
+let a2=[1,2,3,[4,5,[6,7,[8,9]]]];
+let d=JSON.parse("["+JSON.stringify(a2).replace(/[[\]]/g,'').split(",")+"]")
+console.log(d);

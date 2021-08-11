@@ -1,0 +1,12 @@
+<h2>Service Worker</h2>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        console.log('这是Worker');
+        navigator.serviceWorker.register('./file/sw1.js');
+    }
+    navigator.serviceWorker.addEventListener('message', function (e) {
+        console.log(e.data); // this message is from sw.js, to page
+    });
+
+</script>

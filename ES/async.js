@@ -4,9 +4,12 @@ function ajax(){
 }
 
 async function test(){
-  await ajax();
+  // await ajax();
+  return 444
 }
 
-test()
+test().then(res=>{
+  console.log(1,res);
+})
 console.log('22');
  
