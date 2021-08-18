@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机滑动层级</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+        }
+        .in{
+            overflow: hidden;
+            position: absolute;
+            bottom: 30%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(200,100,50, 0.3);
+        }
+        ul{
+            list-style: none;
+            font-size: 30px;
+            height: 200px;
+            overflow: scroll;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <div class="in">
+            <ul>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+            </ul>   
+        </div>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+        <h1>滚动</h1>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector("ul").addEventListener("touchmove",function(e){
+    console.log('触摸移动',e);
+    e.stopPropagation()
+},false)
+</script>
