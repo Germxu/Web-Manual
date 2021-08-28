@@ -4,11 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>flex</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            color: ghostwhite;
+            line-height: 2;
+            text-indent: 2em;
+            font-family: sans-serif;
+        }
+
+        .a,
+        .b {
+            display: flex;
+            height: 500px;
+            background-color: gainsboro;
+            margin-bottom: 30px;
+        }
+
+        .a div {
+            height: 300px;
+        }
+
+        .a div:first-child {
+            background-color: green;
+            /* flex-shrink: 1; */
+            flex-grow: 1;
+
+        }
+
+        .a div:nth-child(2) {
+            background-color: red;
+            /* flex-shrink: 2; */
+            flex-grow: 4;
+        }
+
+        .a div:nth-child(3) {
+            background-color: gray;
+            width: 500px;
+            /* flex-basis: 500px; */
+            flex-grow: 1;
+            /* flex-shrink: 3; */
+        }
+
+    </style>
 </head>
+
 <body>
-    <div class="f">
-        <div class="b"></div>
+    <!-- <h1>flex</h1> -->
+    <div class="a">
+        <div></div>
+        <div></div>
+        <div id="ap"></div>
     </div>
+    <!-- <h1>flex</h1> -->
+    <div class="b">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
 </body>
+
 </html>
+<script>
+    // flex : 
+    // flex-grow
+    // flex-grow
+    window.onresize = (e) => {
+        // console.log('resize',ap,e);
+        const domStyle = window.getComputedStyle(ap)
+        // console.log(domStyle.width);
+        // ap.innerText = (+domStyle.width.replace("px","")).toFixed(2);
+        ap.innerText =domStyle.width
+
+    }
+</script>
