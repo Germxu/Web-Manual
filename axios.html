@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.js"></script>
+    <title>Axios</title>
+
+    <style>
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入城市">
+    <ul>
+    </ul>
+
+
+    <script>
+        // console.log(axios);
+        // get http://1.mini.eastday.com/tips/tipsxxl.json
+        // jsonp http://mini.eastday.com/apidata/top50jsonp.json
+        // https://www.tianqiapi.com/api/?appid=15468395&appsecret=IWeEIbn7&city=%E5%8D%97%E4%BA%AC
+
+        //获取新闻
+        axios.get('http://1.mini.eastday.com/tips/tipsxxl.json')
+            .then(function (response) {
+                console.log(response.data);
+                var pie='';
+                response.data.data.forEach(element => {
+                    console.log(element)
+                    pie+=`<li><a target="_blank" href="${element.url}">${element.topic}</li>`;
+                });
+                // for (var i of response.data.data){
+                //     console.log(response.data.data[i])
+                // }
+
+                console.log(document.querySelector("ul").innerHTML)
+                document.querySelector("ul").innerHTML = pie;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            
+
+
+        //获取天气
+        // axios.get('https://www.tianqiapi.com/api/', {
+        //         params: {
+        //             appid: "15468395",
+        //             appsecret: "IWeEIbn7",
+        //             city: "平舆"
+        //         }
+        //     })
+        //     .then(function (response) {
+        //         console.log(response);
+
+        //         //document.querySelector("ul").innerHTML = response.data.data;
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+    </script>
+</body>
+
+</html>

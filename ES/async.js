@@ -1,12 +1,8 @@
-
-function ajax(){
-  return "ajax"
+async function t(){
+    console.log('t');
+    
+  return 3
 }
-
-async function test(){
-  await ajax();
-}
-
-test()
-console.log('22');
  
+let  a =  t()
+console.log(a)
