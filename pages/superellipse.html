@@ -8,104 +8,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>超椭圆-Hyperellipse</title>
     <style>
-
-body {
-	background: #444;
-}
-button {
-	all: initial;
-	width: var(--s);
-	height: var(--s);
-	--smooth-corners: 3;
-	--smooth-corners-bg-color: rgba(255,0,255,1);
-	--smooth-corners-border-color: rgba(0, 255, 226, 0.25);
-	--smooth-corners-border-size: 7;
-	background: paint(smooth-corners);
-}
-
-
-
-        .el {
-            background: linear-gradient(deeppink, orangered);
-            mask-image: paint(smooth-corners);
+        .a {
+        position: relative;
+        width: 256px;
+        height: 256px;
+        max-height: 80vw;
+        max-width: 80%;
         }
-
-        @supports (mask-image: paint(smooth-corners)) {
-            .el.is-loaded {
-                border-radius: 0;
-                mask-image: paint(smooth-corners);
-                --smooth-corners: <mark id="valuesquircle">4</mark>;
-            }
+        .a {
+        margin: 50px auto;
+        }
+        .b {
+        width: 100%;
+        padding-top: 100%;
+        height: 0;
+        background: #fff;
+        border-radius: 70px;
+        position: absolute;
+        top: 0;
+        }
+        .c {
+        background: linear-gradient(to bottom right, deeppink, orangered);
+        }
+        @supports (-webkit-mask-image: paint(smooth-corners)) {
+        .c.is-loaded {
+            border-radius: 0;
+            -webkit-mask-image: paint(smooth-corners);
+            --smooth-corners: 4;
+        }
+        }
     </style>
 </head>
 
 <body>
-    <div class="b c is-loaded" id="el" style=" --smooth-corners:3; "></div>
+    <div class="Demo">
+        <div class="a">
+            <div class="b" id="shallowEl"></div>
+            <div class="b c is-loaded" id="el"></div>
+        </div>
+    </div>
 </body>
 
 </html>
 <script>
+    //https://zhuanlan.zhihu.com/p/30829138
 
-    //https://zhuanlan.zhihu.com/p/30829138 
-    console.log(CSS)
-    /* or, in JS */
-    CSS.registerProperty({
-        name: '--registerPaint',
-        syntax: '<color>',
-        inherits: false,
-        initialValue: 'transparent'
-    })
-    egisterPaint('smooth-corners', class {
-        static get inputProperties() {
-            return [
-                '--smooth-corners'
-            ]
-        }
-        paint(ctx, size, styleMap) {
-            const exp = styleMap.get('--smooth-corners').toString()
+    // CSS.paintWorklet.addModule("smooth-corners.js");
 
-            const n = exp
-        }
-    })
-    registerPaint('smooth-corners', class {
-        static get inputProperties() {
-            return [
-                '--smooth-corners'
-            ]
-        }
-        paint(ctx, geom, properties) {
-            const c = properties.get('--smooth-corners').toString()
-
-            ctx.fillStyle = 'black'
-
-            const n = c
-            let m = n
-            if (n > 100) m = 100
-            if (n < 0.00000000001) m = 0.00000000001
-            const r = geom.width / 2
-            const w = geom.width / 2
-            const h = geom.height / 2
-
-            ctx.beginPath();
-
-            for (let i = 0; i < (2 * r + 1); i++) {
-                const x = (i - r) + w
-                const y = (Math.pow(Math.abs(Math.pow(r, m) - Math.pow(Math.abs(i - r), m)), 1 / m)) + h
-
-                if (i == 0)
-                    ctx.moveTo(x, y)
-                else
-                    ctx.lineTo(x, y)
-            }
-
-            for (let i = (2 * r); i < (4 * r + 1); i++) {
-                const x = (3 * r - i) + w
-                const y = (-Math.pow(Math.abs(Math.pow(r, m) - Math.pow(Math.abs(3 * r - i), m)), 1 / m)) + h
-                ctx.lineTo(x, y)
-            }
-
-            ctx.closePath()
-            ctx.fill()
-        }
-    })
+  (async function() {
+    console.log(CSS.paintWorklet)
+    if (CSS["paintWorklet"] === undefined)
+      await import(
+        "https://unpkg.com/css-paint-polyfill@next/dist/css-paint-polyfill.js"
+      );
+    CSS.paintWorklet.addModule(
+      "smooth-corners.js"
+    );
+  })();
 </script>

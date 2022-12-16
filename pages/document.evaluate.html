@@ -22,6 +22,7 @@
 </html>
 <script>
    const dom =  document.evaluate("/html/body/div", document, null, XPathResult.ANY_TYPE, null);
+    console.log('dom', dom)
    const  iterator = dom.iterateNext();
    const  iterator2 = dom.iterateNext();
    const  iterator3 = dom.iterateNext();

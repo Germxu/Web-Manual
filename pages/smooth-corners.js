@@ -9,7 +9,7 @@ registerPaint('smooth-corners', class {
 		]
 	}
   paint(ctx, size, styleMap) {
-		
+
     ctx.fillStyle = styleMap.get('--smooth-corners-bg-color').toString()
 		ctx.strokeStyle = styleMap.get('--smooth-corners-border-color').toString()
 		const border_size = styleMap.get('--smooth-corners-border-size').toString()
@@ -31,7 +31,7 @@ registerPaint('smooth-corners', class {
     ctx.beginPath();
 
     for (let i = 0; i < (2*r+1); i++) {
-      const x = (i-r) + w 
+      const x = (i-r) + w
       const y = (Math.pow(Math.abs(Math.pow(r,m)-Math.pow(Math.abs(i-r),m)),1/m)) + h
 
       if (i == 0)
@@ -45,7 +45,7 @@ registerPaint('smooth-corners', class {
       const y = (-Math.pow(Math.abs(Math.pow(r,m)-Math.pow(Math.abs(3*r-i),m)),1/m)) + h
       ctx.lineTo(x, y)
     }
-		
+
     ctx.closePath()
     ctx.fill()
     if( border_size)
